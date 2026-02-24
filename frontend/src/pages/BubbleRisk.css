@@ -1,0 +1,765 @@
+/* BubbleRisk.css */
+
+:root {
+  --brx-bg1: #1e88e5;
+  --brx-bg2: #1565c0;
+
+  /* high contrast text */
+  --brx-text: #eef6ff;
+  --brx-muted: rgba(238, 246, 255, 0.78);
+
+  /* surfaces */
+  --brx-surface: rgba(255, 255, 255, 0.12);
+  --brx-surface2: rgba(255, 255, 255, 0.09);
+  --brx-border: rgba(255, 255, 255, 0.18);
+
+  /* accents */
+  --brx-red: #ff5252;
+  --brx-green: #2ee59d;
+  --brx-amber: #ffcf5a;
+
+  --brx-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+  --brx-shadow2: 0 10px 28px rgba(0, 0, 0, 0.22);
+
+  --brx-radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#brxBubbleRisk.brxPage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--brx-bg1), var(--brx-bg2));
+  color: var(--brx-text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+  overflow-x: hidden;
+}
+
+.brxTopLine {
+  height: 4px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0));
+}
+
+.brxWrap {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 22px 0 40px;
+}
+
+/* -------------------------
+   Header + Controls
+------------------------- */
+.brxHeader {
+  margin: 12px 0 18px;
+}
+
+.brxHeaderTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.brxBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: var(--brx-shadow2);
+  backdrop-filter: blur(10px);
+}
+
+.brxBadgeIcon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.95;
+}
+
+.brxTitle {
+  margin: 10px 0 4px;
+  font-size: clamp(22px, 3vw, 34px);
+  letter-spacing: 0.2px;
+  line-height: 1.15;
+}
+
+.brxSub {
+  margin: 0;
+  color: var(--brx-muted);
+  font-size: 14px;
+}
+
+/* controls */
+.brxControls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.brxSearch,
+.brxFilter {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 14px;
+  background: rgba(12, 28, 64, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--brx-shadow2);
+}
+
+.brxCtrlIcon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.95;
+}
+
+.brxInput {
+  width: min(320px, 52vw);
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--brx-text);
+  font-size: 14px;
+}
+
+.brxInput::placeholder {
+  color: rgba(238, 246, 255, 0.7);
+}
+
+.brxSelect {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--brx-text);
+  font-size: 14px;
+  padding-right: 6px;
+  cursor: pointer;
+}
+
+.brxSelect option {
+  color: #0c1c40;
+}
+
+.brxClearBtn {
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--brx-text);
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.brxClearBtn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.24);
+}
+
+/* -------------------------
+   KPI Grid
+------------------------- */
+.brxKpiGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.brxKpi {
+  border-radius: var(--brx-radius);
+  padding: 14px 14px 12px;
+  background: var(--brx-surface);
+  border: 1px solid var(--brx-border);
+  box-shadow: var(--brx-shadow2);
+  backdrop-filter: blur(10px);
+}
+
+.brxKpiTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--brx-text);
+}
+
+.brxKpiIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.brxSvgIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.brxKpiTitle {
+  font-size: 13px;
+  color: rgba(238, 246, 255, 0.9);
+}
+
+.brxKpiValue {
+  margin-top: 10px;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.brxKpiSub {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: rgba(238, 246, 255, 0.78);
+  font-size: 12px;
+}
+
+.brxKpiChip {
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* tones */
+.brxKpi_danger .brxKpiIcon {
+  box-shadow: 0 0 0 3px rgba(255, 82, 82, 0.14);
+}
+.brxKpi_warn .brxKpiIcon {
+  box-shadow: 0 0 0 3px rgba(255, 207, 90, 0.14);
+}
+.brxKpi_neutral .brxKpiIcon {
+  box-shadow: 0 0 0 3px rgba(46, 229, 157, 0.12);
+}
+.brxKpiChip_danger {
+  color: #ffd1d1;
+}
+.brxKpiChip_warn {
+  color: #ffe6b1;
+}
+.brxKpiChip_neutral {
+  color: #c9ffe9;
+}
+
+/* -------------------------
+   Cards / Layout
+------------------------- */
+.brxMainGrid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.brxCard {
+  border-radius: var(--brx-radius);
+  background: var(--brx-surface2);
+  border: 1px solid var(--brx-border);
+  box-shadow: var(--brx-shadow);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.brxCardHead {
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.brxCardHeadRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.brxCardTitle {
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+}
+
+.brxCardHint {
+  margin: 6px 0 0;
+  color: var(--brx-muted);
+  font-size: 12.5px;
+}
+
+.brxCardBody {
+  padding: 14px 16px 16px;
+}
+
+.brxChartBody {
+  position: relative;
+}
+
+.brxMt {
+  margin-top: 14px;
+}
+
+/* -------------------------
+   Chart styles
+------------------------- */
+.brxChartWrap {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.brxChartSvg {
+  min-width: 860px;
+  width: 100%;
+  height: auto;
+}
+
+.brxGridLine {
+  stroke: rgba(255, 255, 255, 0.16);
+  stroke-dasharray: 4 4;
+}
+
+.brxAxisTick,
+.brxAxisTickX {
+  font-size: 12px;
+  fill: rgba(238, 246, 255, 0.82);
+}
+
+.brxAxisTickX {
+  fill: rgba(238, 246, 255, 0.76);
+}
+
+.brxPoint {
+  cursor: pointer;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.35));
+}
+
+.brxLegendText {
+  font-size: 12px;
+  fill: rgba(238, 246, 255, 0.9);
+}
+
+/* tooltip */
+.brxTip {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 10px));
+  background: rgba(10, 22, 50, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  padding: 10px 12px;
+  min-width: 160px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease;
+  box-shadow: var(--brx-shadow);
+}
+
+.brxTip_show {
+  opacity: 1;
+}
+
+.brxTipTitle {
+  font-size: 12px;
+  color: rgba(238, 246, 255, 0.8);
+}
+
+.brxTipValue {
+  font-size: 16px;
+  font-weight: 800;
+  margin-top: 4px;
+  color: var(--brx-text);
+}
+
+/* -------------------------
+   AI panel
+------------------------- */
+.brxAiIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.brxDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 12px 0;
+}
+
+.brxProgTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.brxProgLabel {
+  color: rgba(238, 246, 255, 0.88);
+}
+
+.brxProgValue {
+  font-weight: 800;
+}
+
+.brxProgTrack {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+  margin-top: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.brxProgFill {
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.brxProgFill_warn {
+  background: rgba(255, 207, 90, 0.8);
+}
+.brxProgFill_danger {
+  background: rgba(255, 82, 82, 0.82);
+}
+
+.brxProgValue_warn {
+  color: #ffe6b1;
+}
+.brxProgValue_danger {
+  color: #ffd1d1;
+}
+
+.brxAiChips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.brxAiChip {
+  border-radius: 16px;
+  padding: 12px;
+  background: rgba(12, 28, 64, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.brxAiChipValue {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.brxAiChipLabel {
+  margin-top: 4px;
+  font-size: 12px;
+  color: rgba(238, 246, 255, 0.78);
+}
+
+.brxAiChip_danger .brxAiChipValue {
+  color: #ffd1d1;
+}
+.brxAiChip_warn .brxAiChipValue {
+  color: #ffe6b1;
+}
+
+/* -------------------------
+   Stress cards
+------------------------- */
+.brxStressGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  padding: 14px 16px 16px;
+}
+
+.brxStress {
+  border-radius: 16px;
+  padding: 12px;
+  background: rgba(12, 28, 64, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  min-height: 106px;
+}
+
+.brxStressTitle {
+  font-size: 12px;
+  color: rgba(238, 246, 255, 0.86);
+}
+
+.brxStressValue {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.brxStressSub {
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(238, 246, 255, 0.72);
+}
+
+.brxStress_danger {
+  box-shadow: 0 0 0 3px rgba(255, 82, 82, 0.12) inset;
+}
+.brxStress_warn {
+  box-shadow: 0 0 0 3px rgba(255, 207, 90, 0.12) inset;
+}
+
+.brxWarnDot {
+  width: 26px;
+  height: 26px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  color: #0c1c40;
+  background: rgba(255, 207, 90, 0.9);
+}
+
+/* -------------------------
+   Table
+------------------------- */
+.brxTableWrap {
+  overflow-x: auto;
+}
+
+.brxTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.brxTable thead th {
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  padding: 12px 14px;
+  color: rgba(238, 246, 255, 0.9);
+  background: rgba(12, 28, 64, 0.22);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.brxTable tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 13px;
+  color: rgba(238, 246, 255, 0.9);
+}
+
+.brxTable tbody tr:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.brxCity {
+  font-weight: 800;
+}
+
+.brxRiskCell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brxRiskNum {
+  font-weight: 800;
+}
+
+.brxMiniBar {
+  width: 88px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.brxMiniBarFill {
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.brxNeg {
+  color: #ffd1d1;
+  font-weight: 700;
+}
+.brxPos {
+  color: #c9ffe9;
+  font-weight: 700;
+}
+.brxDiv {
+  color: rgba(238, 246, 255, 0.92);
+  font-weight: 700;
+}
+
+.brxPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-transform: lowercase;
+}
+
+.brxPill_high {
+  background: rgba(255, 82, 82, 0.2);
+  color: #ffd1d1;
+}
+.brxPill_med {
+  background: rgba(255, 207, 90, 0.22);
+  color: #ffe6b1;
+}
+.brxPill_low {
+  background: rgba(46, 229, 157, 0.16);
+  color: #c9ffe9;
+}
+
+.brxTableMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(238, 246, 255, 0.78);
+  font-size: 12px;
+}
+
+.brxCount b {
+  color: rgba(238, 246, 255, 0.95);
+}
+
+.brxEmpty {
+  padding: 18px 14px;
+  color: rgba(238, 246, 255, 0.78);
+}
+
+/* -------------------------
+   Actions + Buttons
+------------------------- */
+.brxActionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 14px 16px 0;
+}
+
+.brxActionCard {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(12, 28, 64, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.brxActionDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  margin-top: 5px;
+  background: rgba(255, 207, 90, 0.95);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.brxActionTitle {
+  font-weight: 800;
+  color: rgba(238, 246, 255, 0.95);
+  font-size: 13px;
+}
+
+.brxActionMeta {
+  margin-top: 4px;
+  color: rgba(238, 246, 255, 0.75);
+  font-size: 12px;
+}
+
+.brxBtns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 14px 16px 16px;
+}
+
+.brxBtn {
+  border: none;
+  outline: none;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
+}
+
+.brxBtn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+}
+
+.brxBtn_primary {
+  background: rgba(255, 255, 255, 0.92);
+  color: #0c1c40;
+}
+
+.brxBtn_secondary {
+  background: rgba(12, 28, 64, 0.26);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--brx-text);
+}
+
+.brxSpark .brxSvgIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.brxSpacer {
+  height: 26px;
+}
+
+/* -------------------------
+   Responsive
+------------------------- */
+@media (max-width: 1024px) {
+  .brxMainGrid {
+    grid-template-columns: 1fr;
+  }
+  .brxStressGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .brxActionsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .brxKpiGrid {
+    grid-template-columns: 1fr;
+  }
+  .brxStressGrid {
+    grid-template-columns: 1fr;
+  }
+  .brxInput {
+    width: 58vw;
+  }
+}

@@ -1,0 +1,117 @@
+/* Navbar.css */
+.nav {
+  position: sticky;
+  top: 64px; /* sits under header (adjust if your header height differs) */
+  z-index: 40;
+  width: 100%;
+
+  /* same theme color */
+  background: linear-gradient(135deg, #1e88e5, #1565c0);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.navInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+/* optional: subtle scrollbar styling */
+.navInner::-webkit-scrollbar {
+  height: 8px;
+}
+.navInner::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+}
+.navInner::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+}
+
+.navItem {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 12px;
+  border-radius: 12px;
+
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease,
+    border-color 160ms ease, filter 160ms ease;
+}
+
+.navItem:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.32);
+  filter: brightness(1.02);
+}
+
+.navItem:active {
+  transform: translateY(1px);
+}
+
+.navItem:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.55);
+}
+
+/* Active route */
+.navItem.active {
+  background: rgba(255, 255, 255, 0.92);
+  color: #0f4aa6;
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.18);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav {
+    top: 60px;
+  }
+
+  .navInner {
+    padding: 9px 12px;
+    gap: 8px;
+  }
+
+  .navItem {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav {
+    top: 58px;
+  }
+
+  .navInner {
+    padding: 8px 10px;
+  }
+}

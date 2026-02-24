@@ -1,0 +1,741 @@
+/* Regions.css */
+/* Unique scope root: #regions-page + all classes regions-* (prevents collisions) */
+
+#regions-page.regions-page {
+  --regions-bg-1: rgba(255, 255, 255, 0.06);
+  --regions-text: rgba(255, 255, 255, 0.92);
+  --regions-muted: rgba(255, 255, 255, 0.70);
+  --regions-border: rgb(255, 255, 255);
+  --regions-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+
+  /* ✅ CHANGED BACKGROUND */
+  background: linear-gradient(135deg,#0f6cbd, #075fc4);
+
+  min-height: 100vh;
+  padding: 22px;
+  color: var(--regions-text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+  box-sizing: border-box;
+}
+
+#regions-page * {
+  box-sizing: border-box;
+}
+
+/* Topbar */
+.regions-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--regions-border);
+  background: var(--regions-bg-1);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.regions-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--regions-muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.regions-breadcrumb__sep {
+  opacity: 0.7;
+}
+.regions-breadcrumb__active {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 800;
+}
+.regions-breadcrumb__muted {
+  color: var(--regions-muted);
+}
+
+.regions-backBtn {
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 800;
+  border: 1px solid var(--regions-border);
+  background: rgba(255, 255, 255, 0.13);
+  color: var(--regions-text);
+  cursor: pointer;
+}
+.regions-backBtn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* Header */
+.regions-header {
+  margin-top: 16px;
+  padding: 16px 10px 6px;
+}
+.regions-title {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: 0.2px;
+}
+.regions-subtitle {
+  margin-top: 6px;
+  color: var(--regions-muted);
+}
+
+/* Filters */
+.regions-filters {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 220px 240px 1fr auto;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--regions-border);
+  background: var(--regions-bg-1);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  box-shadow: var(--regions-shadow);
+}
+
+@media (max-width: 980px) {
+  .regions-filters {
+    grid-template-columns: 1fr;
+  }
+  .regions-actions {
+    justify-content: flex-start !important;
+  }
+}
+
+.regions-filterItem {
+  display: grid;
+  gap: 6px;
+}
+.regions-filterItem--grow {
+  min-width: 0;
+}
+
+.regions-filterLabel {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--regions-muted);
+}
+
+.regions-select,
+.regions-input {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--regions-border);
+  background: rgba(0, 0, 0, 0.14);
+  color: var(--regions-text);
+  padding: 10px 12px;
+  outline: none;
+}
+
+.regions-input::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ✅ FIX: native select dropdown option colors */
+.regions-select option,
+.regions-select optgroup {
+  background: #ffffff;
+  color: #111111;
+}
+
+.regions-actions {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Buttons */
+.regions-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 800;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--regions-text);
+  cursor: pointer;
+}
+.regions-btn:hover {
+  background: rgba(255, 255, 255, 0.20);
+}
+.regions-btn--outline {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: var(--regions-border);
+}
+
+/* KPI cards */
+.regions-kpis {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+@media (max-width: 1100px) {
+  .regions-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 700px) {
+  .regions-kpis {
+    grid-template-columns: 1fr;
+  }
+}
+
+.regions-kpiCard {
+  border: 1px solid var(--regions-border);
+  background: var(--regions-bg-1);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: var(--regions-shadow);
+  backdrop-filter: blur(8px);
+}
+.regions-kpiTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.regions-kpiLabel {
+  font-size: 12px;
+  color: var(--regions-muted);
+  font-weight: 800;
+}
+.regions-kpiIcon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  border: 1px solid var(--regions-border);
+  background: rgba(255, 255, 255, 0.10);
+}
+.regions-kpiValue {
+  margin-top: 8px;
+  font-size: 22px;
+  font-weight: 900;
+}
+.regions-kpiHint {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--regions-muted);
+}
+
+/* Panels */
+.regions-panel {
+  margin-top: 14px;
+  border: 1px solid var(--regions-border);
+  background: var(--regions-bg-1);
+  border-radius: 16px;
+  overflow: visible; /* ✅ IMPORTANT for tooltips */
+  box-shadow: var(--regions-shadow);
+  backdrop-filter: blur(8px);
+}
+
+.regions-panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--regions-border);
+}
+.regions-panelHeader--table {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.986);
+}
+.regions-panelTitle {
+  font-weight: 900;
+  letter-spacing: 0.2px;
+}
+.regions-panelSub {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--regions-muted);
+}
+
+/* Segment buttons */
+.regions-seg {
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.regions-segBtn {
+  border-radius: 999px;
+  padding: 8px 12px;
+  border: 1px solid var(--regions-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.86);
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 13px;
+}
+.regions-segBtn.is-active {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.26);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Heat map */
+.regions-heatMapWrap {
+  padding: 14px;
+}
+.regions-heatMapBoard {
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.10);
+  min-height: 320px;
+  overflow: visible;
+}
+.regions-heatMapShape {
+  position: absolute;
+  inset: 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+}
+
+.regions-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.22);
+  color: rgba(255, 255, 255, 0.92);
+  z-index: 2;
+}
+.regions-pin:hover {
+  background: rgba(0, 0, 0, 0.28);
+}
+.regions-pin.is-selected {
+  outline: 2px solid rgba(255, 255, 255, 0.28);
+}
+.regions-pinDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+}
+.regions-pinText {
+  font-weight: 900;
+  font-size: 12px;
+}
+
+/* heat levels */
+.regions-pin--low { background: rgba(52, 211, 153, 0.16); border-color: rgba(52, 211, 153, 0.35); }
+.regions-pin--med { background: rgba(251, 191, 36, 0.16); border-color: rgba(251, 191, 36, 0.35); }
+.regions-pin--high { background: rgba(251, 113, 133, 0.16); border-color: rgba(251, 113, 133, 0.35); }
+
+.regions-legend {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 180px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.22);
+  border-radius: 14px;
+  padding: 10px 10px;
+  z-index: 2;
+}
+.regions-legendTitle {
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+.regions-legendRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
+}
+.regions-legendSwatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 6px;
+}
+.regions-legendSwatch--low { background: rgba(52, 211, 153, 0.60); }
+.regions-legendSwatch--med { background: rgba(251, 191, 36, 0.60); }
+.regions-legendSwatch--high { background: rgba(251, 113, 133, 0.60); }
+.regions-legendLabel {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 12px;
+}
+
+/* Selected bar + chips */
+.regions-selectedBar {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 14px;
+  padding: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+@media (max-width: 980px) {
+  .regions-selectedBar {
+    grid-template-columns: 1fr;
+  }
+}
+.regions-selectedTitle {
+  font-weight: 900;
+  font-size: 18px;
+}
+.regions-selectedMeta {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.regions-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.88);
+}
+.regions-chip b {
+  font-weight: 900;
+}
+
+.regions-miniTitle {
+  font-weight: 900;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+}
+.regions-miniChart {
+  margin-top: 10px;
+  min-height: 180px;
+  overflow: visible;
+  position: relative;
+}
+
+/* Chart wrap (important for tooltip overlay) */
+.regions-chartWrap {
+  padding: 14px;
+  overflow: visible;
+  position: relative;
+}
+
+/* ✅ HARD FIX for tooltip visibility in Recharts */
+#regions-page .recharts-wrapper,
+#regions-page .recharts-surface {
+  overflow: visible !important;
+}
+
+#regions-page .recharts-tooltip-wrapper {
+  z-index: 999999 !important;
+  pointer-events: none;
+}
+
+/* ✅ Your custom tooltip styles (this is what you render via <Tooltip content={...} /> ) */
+.regions-tooltip {
+  background: rgba(11, 18, 32, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  padding: 10px 12px;
+  color: rgba(255, 255, 255, 0.92);
+  min-width: 180px;
+  z-index: 999999;
+}
+.regions-tooltip__title {
+  font-weight: 900;
+  margin-bottom: 6px;
+  color: rgba(255, 255, 255, 0.92);
+}
+.regions-tooltip__line {
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.90);
+}
+.regions-tooltip__hint {
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.70);
+}
+
+/* Table */
+.regions-tableWrap {
+  padding: 14px;
+  overflow: auto;
+}
+.regions-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  background: rgba(0, 0, 0, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.regions-table th,
+.regions-table td {
+  padding: 12px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  font-size: 13px;
+  text-align: left;
+  vertical-align: middle;
+}
+.regions-table th {
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(8px);
+  z-index: 1;
+  font-weight: 900;
+}
+.regions-regionCell {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.regions-regionDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.90);
+}
+.regions-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  letter-spacing: 0.2px;
+}
+.regions-num--danger {
+  color: rgba(251, 113, 133, 0.92);
+  font-weight: 900;
+}
+.regions-num--accent {
+  color: rgba(147, 197, 253, 0.92);
+  font-weight: 900;
+}
+.regions-viewBtn {
+  border-radius: 12px;
+  padding: 8px 10px;
+  font-weight: 900;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+}
+.regions-viewBtn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+.regions-empty {
+  padding: 18px !important;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* Modal */
+.regions-modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+.regions-modalOverlayClose {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  cursor: pointer;
+}
+.regions-modal {
+  position: relative;
+  width: min(1100px, 96vw);
+  max-height: 90vh;
+  overflow: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(11, 18, 32, 0.82);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.55);
+  z-index: 2;
+}
+.regions-modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.regions-modalTitle {
+  font-weight: 900;
+  font-size: 16px;
+}
+.regions-modalSub {
+  margin-top: 4px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.72);
+}
+.regions-modalHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.regions-closeBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+}
+.regions-closeBtn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+.regions-modalBody {
+  padding: 14px;
+}
+.regions-modalFooter {
+  padding: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Detail grid */
+.regions-detailGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+@media (max-width: 980px) {
+  .regions-detailGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .regions-detailGrid {
+    grid-template-columns: 1fr;
+  }
+}
+.regions-detailCard {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 12px;
+}
+.regions-detailLabel {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.70);
+  font-weight: 900;
+}
+.regions-detailValue {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 900;
+}
+.regions-detailHint {
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+/* Badge */
+.regions-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.10);
+}
+.regions-badge--ok {
+  color: rgba(52, 211, 153, 0.95);
+  border-color: rgba(52, 211, 153, 0.35);
+  background: rgba(52, 211, 153, 0.12);
+}
+.regions-badge--risk {
+  color: rgba(251, 113, 133, 0.95);
+  border-color: rgba(251, 113, 133, 0.35);
+  background: rgba(251, 113, 133, 0.12);
+}
+
+/* Modal split */
+.regions-modalSplit {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+@media (max-width: 980px) {
+  .regions-modalSplit {
+    grid-template-columns: 1fr;
+  }
+}
+.regions-subPanel {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.14);
+  border-radius: 14px;
+  padding: 12px;
+  overflow: visible;
+}
+.regions-subPanelTitle {
+  font-weight: 900;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.90);
+}
+.regions-miniChart--modal {
+  margin-top: 10px;
+  overflow: visible;
+  position: relative;
+}
+
+/* Note */
+.regions-note {
+  margin-top: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 12px;
+}
+
+/* Print */
+@media print {
+  #regions-page.regions-page {
+    background: #fff !important;
+    color: #111 !important;
+    padding: 0 !important;
+  }
+
+  .regions-topbar,
+  .regions-filters {
+    display: none !important;
+  }
+
+  .regions-panel,
+  .regions-kpiCard {
+    background: #fff !important;
+    color: #111 !important;
+    box-shadow: none !important;
+    border-color: #ddd !important;
+  }
+
+  .regions-subtitle,
+  .regions-panelSub,
+  .regions-kpiHint,
+  .regions-filterLabel {
+    color: #333 !important;
+  }
+}
